@@ -1,6 +1,4 @@
-import cv2 as cv
-
-from .basic_shape import BasicShape, draw_poly
+from .basic_shape import BasicShape
 
 __all__ = ['Triangle']
 

@@ -5,6 +5,7 @@ import numpy as np
 import cv2 as cv
 
 from .shape import Shape
+from .shape_utils import rotate_points
 
 
 class BasicShape(Shape, ABC):
@@ -32,7 +33,7 @@ class BasicShape(Shape, ABC):
         if len(self.points) > 1:
             mean = self.points.mean(axis=0)
             normalized_points = self.points - mean
-            rotated_points = rotate_around_origin(normalized_points, angle)
+            rotated_points = rotate_points(normalized_points, angle)
             self.points = np.round(rotated_points + mean).astype(np.int32)
         else:
             warnings.warn('Object only has a single point and so rotation does nothing')
@@ -42,21 +43,3 @@ class BasicShape(Shape, ABC):
         normalized_points = self.points - mean
         scaled_points = normalized_points * scale
         self.points = np.round(scaled_points + mean).astype(np.int32)
-
-
-def rotate_around_origin(points, angle):
-    radian_angle = angle * np.pi / 180
-    rotate_matrix = np.array([
-        [np.cos(radian_angle), np.sin(radian_angle)],
-        [-np.sin(radian_angle), np.cos(radian_angle)]
-    ])
-    rotated_points = points @ rotate_matrix
-    return rotated_points
-
-
-def draw_poly(shape, canvas):
-    points = [shape.points.reshape((-1, 1, 2))]
-    if shape.fill_color:
-        cv.fillPoly(canvas, points, shape.fill_color)
-    if shape.line_color:
-        cv.polylines(canvas, points, True, shape.line_color)
