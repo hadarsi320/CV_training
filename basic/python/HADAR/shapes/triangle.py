@@ -1,17 +1,10 @@
 import cv2 as cv
 
-from basic_shape import BasicShape
+from .basic_shape import BasicShape, draw_poly
 
-__all__ = ['Rectangle']
+__all__ = ['Triangle']
 
 
-class Rectangle(BasicShape):
+class Triangle(BasicShape):
     def __init__(self, p1, p2, p3, **kwargs):
-        super(Rectangle, self).__init__(**kwargs)
-        self.points = [p1, p2, p3]
-
-    def draw(self, canvas):
-        if self.line_color:
-            cv.polylines(canvas, self.points, False, self.line_color)
-        if self.fill_color:
-            cv.polylines(canvas, self.points, True, self.fill_color)
+        super(Triangle, self).__init__([p1, p2, p3], **kwargs)
