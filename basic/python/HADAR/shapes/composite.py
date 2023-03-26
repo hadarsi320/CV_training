@@ -17,35 +17,26 @@ def get_center(shapes):
 
 
 class Composite(Shape):
-    def __init__(self, shapes: List[BasicShape], center: List = None):
+    def __init__(self, shapes: List[BasicShape], center: List = None, **kwargs):
         self.shapes = shapes
         if center:
-            self.center = np.array(center)
+            center = np.array(center)
         else:
-            self.center = get_center(shapes)
+            center = get_center(shapes)
+        super(Composite, self).__init__(center, **kwargs)
 
     def draw(self, canvas):
         for shape in self.shapes:
             shape.draw(canvas)
 
-    def rotate(self, angle):
+    def rotate(self, angle, center):
         for shape in self.shapes:
-            points = shape.points
-            normalized_points = points - self.center
-            rotated_points = rotate_points(normalized_points, angle)
-            shape.points = np.round(rotated_points + self.center).astype(np.int32)
+            shape.rotate(angle, center)
 
     def translate(self, translation):
         for shape in self.shapes:
             shape.translate(translation)
-        self.center += translation
 
-    def scale(self, scale):
+    def scale(self, scale, center):
         for shape in self.shapes:
-            shape.scale(scale)
-            points = shape.points
-            shape_center = points.mean(axis=0)
-            shape_bias = shape_center - self.center
-            centered_points = points - shape_bias
-            scaled_biased_points = centered_points + shape_bias * scale
-            shape.points = np.round(scaled_biased_points).astype(np.int32)
+            shape.scale(scale, center)

@@ -1,19 +1,20 @@
-import warnings
 from abc import ABC
 
-import numpy as np
 import cv2 as cv
 
 from .shape import Shape
-from .shape_utils import rotate_points
+from .shape_utils import *
 
 
 class BasicShape(Shape, ABC):
-    def __init__(self, points, line_color=None, fill_color=None):
+    def __init__(self, points, line_color=None, fill_color=None, **kwargs):
         assert line_color or fill_color, 'Either fill color or line color must be passed'
         self.points = np.array([np.array(p) for p in points], dtype=np.int32)
         self.line_color = line_color
         self.fill_color = fill_color
+
+        center = self.points.mean(axis=0)
+        super(BasicShape, self).__init__(center, **kwargs)
 
     def draw(self, canvas):
         assert len(self.points) > 2
@@ -29,17 +30,10 @@ class BasicShape(Shape, ABC):
             point += translation
         self.points = np.round(self.points)
 
-    def rotate(self, angle):
-        if len(self.points) > 1:
-            mean = self.points.mean(axis=0)
-            normalized_points = self.points - mean
-            rotated_points = rotate_points(normalized_points, angle)
-            self.points = np.round(rotated_points + mean).astype(np.int32)
-        else:
-            warnings.warn('Object only has a single point and so rotation does nothing')
+    def rotate(self, angle, rotate_center):
+        rotated_points = rotate_around(self.points, angle, rotate_center).astype(np.int32)
+        self.points = rotated_points
 
-    def scale(self, scale):
-        mean = self.points.mean(axis=0)
-        normalized_points = self.points - mean
-        scaled_points = normalized_points * scale
-        self.points = np.round(scaled_points + mean).astype(np.int32)
+    def scale(self, scale, scale_center):
+        scaled_points = scale_around(self.points, scale, scale_center).astype(np.int32)
+        self.points = scaled_points
