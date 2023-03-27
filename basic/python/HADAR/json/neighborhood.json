@@ -7,26 +7,11 @@
   {
     "type": "composite",
     "json": "json/street.json",
-    "translation": [450, 250]
-  },
-  {
-    "type": "composite",
-    "json": "json/street.json",
     "translation": [20, 350]
   },
   {
     "type": "composite",
     "json": "json/street.json",
-    "translation": [470, 350]
-  },
-  {
-    "type": "composite",
-    "json": "json/street.json",
     "translation": [40, 450]
-  },
-  {
-    "type": "composite",
-    "json": "json/street.json",
-    "translation": [490, 450]
   }
 ]

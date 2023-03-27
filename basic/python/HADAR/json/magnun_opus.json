@@ -9,26 +9,63 @@
   {
     "type": "composite",
     "json": "json/road.json",
-    "rotate": -15,
+    "rotate": -10,
     "scale": 4,
-    "translation": [1080, 500]
+    "translation": [750, 500]
   },
   {
     "type": "basic",
     "shape": "rectangle",
     "top_left": [0,0],
     "bottom_right": [1600, 400],
-    "fill_color": [72, 155, 207]
+    "fill_color": [104, 182, 227]
   },
+
   {
-    "type": "basic",
-    "shape": "circle",
-    "p": [100, 100],
-    "radius": 300,
-    "fill_color": [240, 228, 7]
+    "type": "composite",
+    "json": "json/cloud.json",
+    "translation": [500, 100],
+    "scale": 5
   },
   {
     "type": "composite",
-    "json": "json/neighborhood.json"
+    "json": "json/cloud.json",
+    "translation": [1000, 200],
+    "scale": 8
+  },
+  {
+    "type": "composite",
+    "json": "json/cloud.json",
+    "translation": [700, 250],
+    "scale": 7
+  },
+  {
+    "type": "composite",
+    "json": "json/cloud.json",
+    "translation": [1200, 260],
+    "scale": 6
+  },
+
+  {
+    "type": "composite",
+    "json": "json/sun.json",
+    "translation": [100, 100],
+    "scale": 5
+  },
+  {
+    "type": "composite",
+    "json": "json/neighborhood.json",
+    "translation": [100, 0]
+  },
+  {
+    "type": "composite",
+    "json": "json/neighborhood.json",
+    "translation": [900, 0]
+  },
+  {
+    "type": "composite",
+    "json": "json/plane.json",
+    "translation": [800, 120],
+    "scale": 3
   }
 ]

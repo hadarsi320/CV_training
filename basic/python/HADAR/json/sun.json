@@ -1,0 +1,44 @@
+[
+  {
+    "type": "basic",
+    "shape": "circle",
+    "p": [-15, -15],
+    "radius": 50,
+    "fill_color": [240, 228, 7]
+  },
+  {
+    "type": "basic",
+    "shape": "Circle",
+    "p": [-10, -10],
+    "radius": 5,
+    "fill_color": [0, 0, 0]
+  },
+  {
+    "type": "basic",
+    "shape": "Circle",
+    "p": [10, -10],
+    "radius": 5,
+    "fill_color": [0, 0, 0]
+  },
+  {
+    "type": "basic",
+    "shape": "Circle",
+    "p": [0, 5],
+    "radius": 5,
+    "fill_color": [0, 0, 0]
+  },
+  {
+    "type": "basic",
+    "shape": "Circle",
+    "p": [0, 5],
+    "radius": 4,
+    "fill_color": [240, 228, 7]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [-5, 0],
+    "bottom_right": [5, 5],
+    "fill_color": [240, 228, 7]
+  }
+]
