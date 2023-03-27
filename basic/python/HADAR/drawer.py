@@ -24,4 +24,4 @@ class Drawer:
     def save(self, save_file):
         if self.canvas is None:
             raise ValueError('Save called before canvas drawn')
-        cv.imwrite(save_file, self.canvas)
+        cv.imwrite(save_file, (self.canvas * 255).astype(int))
