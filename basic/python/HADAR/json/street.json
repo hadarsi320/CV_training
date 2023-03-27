@@ -1,0 +1,19 @@
+[
+    {
+    "type": "composite",
+    "json": "json/house.json",
+    "translation": [0, 0]
+  },
+
+  {
+    "type": "composite",
+    "json": "json/house.json",
+    "translation": [150, 0]
+  },
+
+  {
+    "type": "composite",
+    "json": "json/house.json",
+    "translation": [300, 0]
+  }
+]

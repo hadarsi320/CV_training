@@ -1,0 +1,79 @@
+[
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [0, 0],
+    "bottom_right": [40, 200],
+    "fill_color": [69, 69, 69]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 5],
+    "bottom_right": [22, 15],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 25],
+    "bottom_right": [22, 35],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 45],
+    "bottom_right": [22, 55],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 65],
+    "bottom_right": [22, 75],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 85],
+    "bottom_right": [22, 95],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 105],
+    "bottom_right": [22, 115],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 125],
+    "bottom_right": [22, 135],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 145],
+    "bottom_right": [22, 155],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 165],
+    "bottom_right": [22, 175],
+    "fill_color": [225, 225, 225]
+  },
+  {
+    "type": "basic",
+    "shape": "rectangle",
+    "top_left": [18, 185],
+    "bottom_right": [22, 195],
+    "fill_color": [225, 225, 225]
+  }
+]

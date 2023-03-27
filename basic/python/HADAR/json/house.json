@@ -1,0 +1,53 @@
+[
+  {
+    "type": "composite",
+    "shapes": [
+      {
+        "type": "basic",
+        "shape": "Rectangle",
+        "top_left": [-5, -4],
+        "bottom_right": [5, 4],
+        "fill_color": [194, 111, 29],
+        "line_color": [0, 0, 0]
+      },
+      {
+        "type": "basic",
+        "shape": "Rectangle",
+        "top_left": [2, 0],
+        "bottom_right": [4, 4],
+        "fill_color": [255, 255, 255],
+        "line_color": [0, 0, 0]
+      },
+      {
+        "type": "basic",
+        "shape": "Triangle",
+        "p1": [-5, -4],
+        "p2": [5, -4],
+        "p3": [0, -8],
+        "fill_color": [255, 0, 0],
+        "line_color": [0, 0, 0]
+      },
+      {
+        "type": "basic",
+        "shape": "circle",
+        "p": [2.6, 2],
+        "radius": 0.3,
+        "fill_color": [0,0,0]
+      },
+      {
+        "type": "composite",
+        "json": "json/window.json",
+        "scale": 0.02,
+        "translation": [-2.2, -1.5]
+      },
+      {
+        "type": "composite",
+        "json": "json/window.json",
+        "scale": 0.02,
+        "translation": [2.2, -1.5]
+      }
+    ],
+    "translation": [100, 200],
+    "scale": 10
+  }
+]
