@@ -1,4 +1,5 @@
 import cv2 as cv
+import numpy as np
 
 from .basic_shape import BasicShape
 
@@ -11,14 +12,16 @@ class Circle(BasicShape):
         super(Circle, self).__init__([p], **kwargs)
 
     def draw(self, canvas):
+        p = self.points[0].astype(np.int32)
+        r = round(self.radius)
         if self.fill_color is not None:
-            cv.circle(canvas, self.points[0], self.radius, self.fill_color, -1)
+            cv.circle(canvas, p, r, self.fill_color, -1)
         if self.line_color is not None:
-            cv.circle(canvas, self.points[0], self.radius, self.line_color, 1)
+            cv.circle(canvas, p, r, self.line_color, 1)
 
     def scale(self, scale, center):
         super(Circle, self).scale(scale, center)
-        self.radius = round(self.radius * scale)
+        self.radius = self.radius * scale
 
     def get_bounding_box(self):
         p = self.points[0]
