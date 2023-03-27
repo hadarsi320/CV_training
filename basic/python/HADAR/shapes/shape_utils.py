@@ -1,9 +1,9 @@
 import numpy as np
 
 
-def rotate_around(points, angle, rotate_center):
-    normalized_points = points - rotate_center
-    rotated_points = rotate_points(normalized_points, angle) + rotate_center
+def rotate_around(points, angle, center):
+    normalized_points = points - center
+    rotated_points = rotate_points(normalized_points, angle) + center
     return rotated_points
 
 
@@ -17,7 +17,7 @@ def rotate_points(points, angle):
     return rotated_points
 
 
-def scale_around(points, scale, scale_center):
-    normalized_points = points - scale_center
-    scaled_points = normalized_points * scale + scale_center
+def scale_around(points, scale, center):
+    normalized_points = points - center
+    scaled_points = normalized_points * scale + center
     return scaled_points

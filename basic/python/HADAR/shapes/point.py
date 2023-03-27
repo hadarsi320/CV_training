@@ -16,7 +16,7 @@ class Point(BasicShape):
             warnings.warn('Fill color is meaningless for points')
 
     def draw(self, canvas):
-        cv.circle(canvas, self.points[0], 1, self.fill_color)
+        cv.circle(canvas, self.points[0], 1, self.line_color)
 
-    def scale(self, scale):
+    def scale(self, scale, center):
         warnings.warn('Scaling does nothing on a point')

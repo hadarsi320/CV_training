@@ -1,28 +1,17 @@
-import numpy as np
 from typing import List
 
-from .shape import Shape
+import numpy as np
+
 from .basic_shape import BasicShape
-from .shape_utils import rotate_points
+from .shape import Shape
 
 __all__ = ['Composite']
 
 
-def get_center(shapes):
-    points = []
-    for shape in shapes:
-        points.append(shape.points)
-    center = np.concatenate(points).mean(axis=0)
-    return center
-
-
 class Composite(Shape):
-    def __init__(self, shapes: List[BasicShape], center: List = None, **kwargs):
+    def __init__(self, shapes: List[BasicShape], **kwargs):
         self.shapes = shapes
-        if center:
-            center = np.array(center)
-        else:
-            center = get_center(shapes)
+        center = self.get_composite_center()
         super(Composite, self).__init__(center, **kwargs)
 
     def draw(self, canvas):
@@ -40,3 +29,29 @@ class Composite(Shape):
     def scale(self, scale, center):
         for shape in self.shapes:
             shape.scale(scale, center)
+
+    def get_bounding_box(self):
+        bounding_boxes = [shape.get_bounding_box() for shape in self.shapes]
+        comp_bb = {
+            'left': min(bb['left'] for bb in bounding_boxes),
+            'right': max(bb['right'] for bb in bounding_boxes),
+            'top': min(bb['top'] for bb in bounding_boxes),
+            'bottom': max(bb['bottom'] for bb in bounding_boxes)
+        }
+
+        return comp_bb
+
+    def get_composite_center(self):
+        bb = self.get_bounding_box()
+        center = np.array([
+            (bb['left'] + bb['right']) / 2,
+            (bb['top'] + bb['bottom']) / 2
+        ])
+        return center
+
+    def get_point_mean_center(self):
+        points = []
+        for shape in self.shapes:
+            points.append(shape.points)
+        center = np.concatenate(points).mean(axis=0)
+        return center
