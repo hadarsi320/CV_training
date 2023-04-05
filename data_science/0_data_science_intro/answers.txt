@@ -1,0 +1,22 @@
+Question 1.
+Parametric approaches are methods that first assume a functional form of the function f (for exmaple, linear in the
+predictors), and then fits the parameters of the model to the data.
+The pro of parametric approaches are that it is easier to estimate a set of parameters rather then fitting an arbitrary
+function. The con is that the chosen model will likely not fit the true form of f, and it requires a lot of thought to
+find an adequately close form.
+Non-Parametric approaches do not make assumptions about the form of f, instead they try to find a function which fits
+the data we have as closely as possible while not being too "wiggly".
+The pro of non-parametric approaches is that they may fit much more functions, since there's no danger that our assumed
+form will be far away from the true form. Their con is that they require much more data.
+
+Question 2.
+The pros of flexible methods is that they are able to fit more functions than inflexible methods and reach higher
+accuracies. The cons are that they are less interpretable and that they stand a bigger risk of overfitting.
+
+Question 3.
+The bias of the model is how much error stems from trying to model the complex data distribution by a simpler model.
+The variance is how much the trained model changes when trained on different datasets from the same distribution, i.e.
+how affected is the resulting model by random noise in the data.
+The more flexible a model is, the more it is able to fit the data distribution and so the lower his bias is, and the
+better it's able to fit the exact points in the dataset (including their noise) thereby increasing its variance.
+When choosing a model, we balance these two error sources in order to get the minimal error.
