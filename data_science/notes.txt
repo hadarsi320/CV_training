@@ -1,0 +1,9 @@
+Part 2.
+Sequential learning is not a thing?
+The bias-variance trade-off thing repeats itself.
+
+Part 3.
+What is the point of the last section? Performance is extremely high without adding more features.
+
+Part 4.
+Why the weird order of reading material? PCA -> Kernels -> KPCA ??
