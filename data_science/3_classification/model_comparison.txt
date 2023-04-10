@@ -1,0 +1,10 @@
+Both LDA and Linear Regression learn linear decision boundaries, they usually achieve similar performances, achieving
+higher accuracies when the true decision boundary is approximately linear. LDA usually wins over Linear Regression when
+the predictors are normally distributed, and loses when they're not.
+
+On the other hand, both QDA and KNN learn nonlinear decision boundaries, with QDA learning quadratic decision and KNN
+learning fully non-parametric decision boundaries. QDA is usually better when the predictors are normally distributed,
+when the true decision boundaries are approximately quadratic (not too complex), and when the number of train samples
+are limited, as it has less variance than KNN.
+
+KNN performs best when the decision boundaries are complex, but it is necessary to choose an appropriate value of K.
