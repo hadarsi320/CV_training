@@ -10,7 +10,8 @@ __all__ = ['Point']
 class Point(BasicShape):
     def __init__(self, p, **kwargs):
         super(Point, self).__init__([p], **kwargs)
-        if self.line_color is None:
+        #TODO: why not inherit from circle?
+        if self.line_color is None: # TODO: again default?
             raise ValueError('Line color must be passed to points')
         if self.fill_color is not None:
             warnings.warn('Fill color is meaningless for points')

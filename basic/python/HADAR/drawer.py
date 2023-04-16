@@ -18,7 +18,7 @@ class Drawer:
     def show(self):
         if self.canvas is None:
             raise ValueError('Show called before canvas drawn')
-        cv.imshow("Floopy", self.canvas)
+        cv.imshow("Floopy", self.canvas) #TODO: floopy?
         cv.waitKey(0)
 
     def save(self, save_file):

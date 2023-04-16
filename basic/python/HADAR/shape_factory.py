@@ -22,7 +22,7 @@ class ShapeFactory:
 
     def create_basic_shape(self, shape, **kwargs):
         shape = shape.lower()
-        if shape == 'line':
+        if shape == 'line': #TODO: can you do it without defining the class names hard coded? (read about dynamic instantiation)
             shape_obj = Line(**kwargs)
         elif shape == 'circle':
             shape_obj = Circle(**kwargs)
@@ -36,7 +36,7 @@ class ShapeFactory:
             raise ValueError(f'Unknown shape: {shape}')
         return shape_obj
 
-    def create_composite_shape(self, **kwargs):
+    def create_composite_shape(self, **kwargs): #TODO: add shape dictionary (read about memoization)
         if 'shapes' in kwargs:
             shapes = self.create_shapes_from_list(kwargs.pop('shapes'))
         elif 'json' in kwargs:
