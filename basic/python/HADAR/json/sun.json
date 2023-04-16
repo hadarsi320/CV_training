@@ -1,7 +1,7 @@
 [
   {
     "type": "basic",
-    "shape": "circle",
+    "shape": "Circle",
     "p": [-15, -15],
     "radius": 50,
     "fill_color": [240, 228, 7]
@@ -36,7 +36,7 @@
   },
   {
     "type": "basic",
-    "shape": "rectangle",
+    "shape": "Rectangle",
     "top_left": [-5, 0],
     "bottom_right": [5, 5],
     "fill_color": [240, 228, 7]

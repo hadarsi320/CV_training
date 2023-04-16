@@ -1,7 +1,7 @@
 [
   {
     "type": "basic",
-    "shape": "rectangle",
+    "shape": "Rectangle",
     "top_left": [0, 200],
     "bottom_right": [1600, 900],
     "fill_color": [99, 50, 6]
@@ -15,7 +15,7 @@
   },
   {
     "type": "basic",
-    "shape": "rectangle",
+    "shape": "Rectangle",
     "top_left": [0,0],
     "bottom_right": [1600, 400],
     "fill_color": [104, 182, 227]

@@ -1,7 +1,7 @@
 [
   {
     "type": "basic",
-    "shape": "rectangle",
+    "shape": "Rectangle",
     "top_left": [-40, -5],
     "bottom_right": [40, 5],
     "fill_color": [151, 151, 151]

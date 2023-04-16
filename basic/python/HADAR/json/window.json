@@ -1,49 +1,49 @@
 [
   {
     "type": "basic",
-    "shape": "rectangle",
+    "shape": "Rectangle",
     "top_left": [-50, -50],
     "bottom_right": [50, 50],
     "fill_color": [49, 145, 204]
   },
   {
       "type": "basic",
-      "shape": "rectangle",
+      "shape": "Rectangle",
       "top_left": [-50, -50],
       "bottom_right": [50, -40],
       "fill_color": [114, 116, 117]
   },
   {
       "type": "basic",
-      "shape": "rectangle",
+      "shape": "Rectangle",
       "top_left": [-50, -50],
       "bottom_right": [-40, 50],
       "fill_color": [114, 116, 117]
   },
   {
       "type": "basic",
-      "shape": "rectangle",
+      "shape": "Rectangle",
       "top_left": [40, -50],
       "bottom_right": [50, 50],
       "fill_color": [114, 116, 117]
   },
   {
       "type": "basic",
-      "shape": "rectangle",
+      "shape": "Rectangle",
       "top_left": [-50, 40],
       "bottom_right": [40, 50],
       "fill_color": [114, 116, 117]
   },
   {
       "type": "basic",
-      "shape": "rectangle",
+      "shape": "Rectangle",
       "top_left": [-5, -50],
       "bottom_right": [5, 50],
       "fill_color": [114, 116, 117]
   },
   {
       "type": "basic",
-      "shape": "rectangle",
+      "shape": "Rectangle",
       "top_left": [-50, -5],
       "bottom_right": [50, 5],
       "fill_color": [114, 116, 117]
