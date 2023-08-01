@@ -1,4 +1,4 @@
-#Computer Vision (Classic)
+# Computer Vision (Classic)
 
 - This sections teaches basic (classic) methods and algorithms in CV, before diving into learning methods.
 

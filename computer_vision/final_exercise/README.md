@@ -20,6 +20,6 @@
         - chosen metrics
         - the dataset you worked on 
         - assumptions you made
-    - A general description of the algorithm, without diving into  details
-    - Algorithm, results (train and test)      
-    - Conclusions, and future wor
+    - A general description of the algorithm, without diving into details
+    - Algorithm, results (train and test)
+    - Conclusions, and future work
