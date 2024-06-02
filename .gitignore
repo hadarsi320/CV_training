@@ -1,0 +1,9 @@
+/basic/python/azriely_and_sons/Drivers_with_kviut.csv
+/basic/python/azriely_and_sons/new_drivers.csv
+/basic/python/azriely_and_sons/taarif.csv
+/basic/python/azriely_and_sons/trips_data/
+.idea
+.ipynb_checkpoints/
+output/
+*.jpg
+*.webp
