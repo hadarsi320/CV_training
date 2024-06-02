@@ -1,0 +1,25 @@
+Main contributions:
+* Propose a method which is faster, cheaper, more accurate, and simpler.	
+* Show that deeper is better and more data is better
+
+Fine details:
+* For bb regression, use smooth l1 loss, which allows them to avoid overfitting to large values.
+* Learning rate scheduler - They multiply the lr by 0.1 after 30k iterations.
+* For VOC07, they train on the 07 trainval, for both VOC10 and VOC12, they train on the 12 trainval.
+* When initializing from pretrained networks, they replace the final max pooling layer with RoI pooling, and replace the final classification layer with two sister layers that predict class and bb.
+
+Questions:
+Q: What is RoI pooling and how does it work? How about backpropogation?
+Q: What is an image pyramid?
+Q: How are the regression targets normalized?
+Q: How are the negative samples chosen? What is the maxmimum IoU? Is hard negative mining used?
+Q: What's Network in Network?
+Q: What's going on in section 5.5? What is dense?
+
+Follow ups:
+Q: What happens when there's less pixels in the roi pooling output than in the input?
+A: The extra output pixels are filled with zeros
+https://github.com/zer0n/caffe-faster-rcnn/blob/0dcd397b29507b8314e252e850518c5695efbb83/src/caffe/layers/roi_pooling_layer.cpp#L101
+Q: What happens when there aren't enough positives in the batch?
+A: When there aren't enough foreground regions in the image, extra negative regions are taken.
+https://github.com/rbgirshick/fast-rcnn/blob/b612190f279da3c11dd8b1396dd5e72779f8e463/lib/roi_data_layer/minibatch.py#L80C15-L80C15

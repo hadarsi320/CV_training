@@ -1,0 +1,90 @@
+RCNN reading notes
+
+contributions:
+* Propose an object detection methods that improve over all previous SOTAs
+* Show that CNNs can be used for object recognition
+* Show that the pretraining/fine-tuning paradigm can be highly effective for data scarce problems.
+	* Better backbone upstream performance equates to better downsteam performance - VGG backbone improves object detection performance over AlexNet
+
+previous works:
+* SegDPM - Bottom-up segmentation for top-down detection
+* DPM - Object detection with discriminatively trained part based models
+* DPM v5 - Discriminatively trained deformable part models
+* Regionlets - Regionlets for generic object detection
+* UVA - Selective search for object recognition
+    * Use selective search
+* OverFeat - OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks
+    * Use a sliding window CNN, previous SOTA on ILSVRC2013
+* O2P - Semantic segmentation with second-order pooling - Semantic Pooling
+
+performance:
+* ILSRCV
+* PASCAL VOC 2012
+
+architecture:
+* region proposals - selective search
+* CNN on regions - alexnet
+* class classifier
+* class specific NMS
+
+training procedure:
+1. Backbone trained on upsteam task - image classification on ImageNet (??)
+2. Backbone finetuned on downstream task - region classification
+3. Softmax layer is discarded
+4. SVMs trained on region classification
+5. Optional - Bounding box linear regression models are trained
+
+
+Questions:
+Q: Selective search fast mode? What is it? How to merge areas? What is the output? Deterministic?
+A: Start with the algorithm of Felzenszwalb and Huttenlocher for initial segmentation. They iteratively merge regions until there is only a single large region. They always merge regions with largest similarity, where the similarity is comprised of color, texture, size and fill. 
+* They diversify their region proposals by using running the algorithm with different similarity functions, different color spaces, and different values of k for the the initial clustering. 
+* The ordering is not entirely deterministic, it is slightly randomized ordering of objectness. 
+* Fast mode only uses two combinations of the similarity functions, two color spaces, and two values of k.
+
+Q: Why 2000 proposals?
+A: That's what fast selective search tends to return according to table 5 of: 
+http://www.huppelen.nl/publications/selectiveSearchDraft.pdf
+
+Q: Specific AlexNet architecture
+A: conv11 -> pool3 -> conv5 -> pool3 -> conv3 (x3) -> pool3 -> linear 4096 (2x) -> linear 1000
+Q: How to compute receptive field?
+A: Pretty clear on the first equation, not on the second.
+
+Q: How regions were resized for input to Alexnet
+A: Warping, tightest square with/out context
+
+Q: See results which suffer from warping
+A: Rows 2 and 4, 3rd from left. Also the worst classes are all non-square.
+
+Q: How to do hard negative mining? Check github
+A: Iterating on all images, keep proposals that the model is wrong enough about and IoU < 0.3, Once enough images have been gathered, update model. On first image, retain all proposals with IoU < 0.3.
+Q: What happens wth first iteration?
+A: Every iteration the SVM models are retrained, using new data (see link), in the first iteration, there are no model weights.
+https://github.com/rbgirshick/rcnn/blob/43b0334e96e9e910bc45c94902a093b5a6f35d0a/rcnn_train.m#L297
+
+Q: Which VOC did they train on? Test?
+A: Finetune on VOC 2012 and trained SVMs on VOC 2012 trainval
+
+Q: Why is RCNN worse on some classes?
+     Boat, bottle, chair, plant, sofa
+A: Aspect ratio
+
+Q: What is DPM? Regionlets? In short.
+A: Deformable part models (DPM) recognize objects using a collection of filters.
+
+Q: What the fuck is a pool5 unit?
+A: It is a single number, not a filter, see code:
+https://github.com/rbgirshick/rcnn/blob/43b0334e96e9e910bc45c94902a093b5a6f35d0a/vis/pool5-explorer/pool5_explorer.m#L137.
+
+Q: Why log scale bb prediction?
+A: Center detection range around 0, squish samples so that large increases won't bias the predictions of the model.
+
+Q: What is CPMC?
+
+Q: Learn what is O2P?
+
+Q: How to use RCNN for semantic segmentation?
+
+Notes:
+* VGG = O-net, AlexNet = T-net

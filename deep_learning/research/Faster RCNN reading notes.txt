@@ -1,0 +1,33 @@
+Main contributions:
+* Propose to replace selective search in Fast R-CNN with region proposal networks.
+
+Details:
+* RPN architecture?
+* A single gt may have more then one associated proposal from the RPN.
+* 300 proposals per image.
+* Bounding box regression is scale and aspect ratio dependant and not class specific, opposite of Fast R-CNN.
+* Each batch has 256 anchors from 1 image, at a ratio of up to 1:1, if not enough positive, it's padded with negatives.
+* NMS is ran on the output of the RPN
+
+Previous works:
+* EdgeBoxes
+* OverFeat
+* MultiBox
+
+Questions:
+* Alternating training?
+* Approximate training?
+* Cross boundry bb?
+* Table 2 conclusions?
+* What is recall to IoU?
+
+Follow ups:
+Q: What is the difference between train and test procedures?
+During Fast R-CNN train, we apply NMS on the output of the RPN and use all resulting regions.
+During inference, we apply NMS and then pick the top 300 regions for use by the Fast R-CNN.
+
+Q: How is gt defined relative to anchors?
+A: We assign a positive label to two kinds of anchors: 
+(i) the anchor/anchors with the highest Intersection-over-Union (IoU) overlap with a ground-truth box, or
+(ii) an anchor that has an IoU overlap higher than 0.7 with any ground-truth box. 
+We assign a negative label to anchors with IoU < 0.3, and ignore the rest.
